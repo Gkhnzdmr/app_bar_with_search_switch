@@ -115,6 +115,7 @@ class AppBarBuilderState extends State<AppBarBuilder> {
           isSearching: isSearching,
           mainWidget: mainWidget,
           buttonColor: buttonColor,
+          cursorColor: Colors.white,
           theme: theme,
           hasText: hasText,
           defaultAppBarWidget: defaultAppBarWidget!,
@@ -136,6 +137,7 @@ class _AppBarSwitch extends StatelessWidget {
     required this.isSearching,
     required this.mainWidget,
     required this.buttonColor,
+    required this.cursorColor,
     required this.theme,
     required this.hasText,
     required this.defaultAppBarWidget,
@@ -146,6 +148,7 @@ class _AppBarSwitch extends StatelessWidget {
 
   final AppBarWithSearchSwitch mainWidget;
   final Color? buttonColor;
+  final Color cursorColor;
   final ThemeData theme;
   final bool hasText;
 
@@ -165,7 +168,9 @@ class _AppBarSwitch extends StatelessWidget {
                 : LeadingIconBackButton(buttonColor: buttonColor),
             title: mainWidget.title != null
                 ? mainWidget.title?.call(context)
-                : const SearchTextField(),
+                : SearchTextField(
+                    cursColor: cursorColor,
+                  ),
             // backgroundColor has higher priority then keepAppBarColors
             backgroundColor: mainWidget.backgroundColor ??
                 (mainWidget.keepAppBarColors ? null : theme.canvasColor),

@@ -9,7 +9,9 @@ import 'app_bar_with_search_switch.dart';
 class SearchTextField extends StatelessWidget {
   const SearchTextField({
     Key? key,
+    required this.cursColor,
   }) : super(key: key);
+  final Color cursColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +24,11 @@ class SearchTextField extends StatelessWidget {
         data: mainWidget.keepAppBarColors
             ? theme.copyWith(
                 textSelectionTheme: TextSelectionThemeData(
-                  // didn't work, https://github.com/flutter/flutter/issues/74890
-                  selectionHandleColor: theme.splashColor,
-                  selectionColor: theme.colorScheme.background.withOpacity(0.5),
-                ),
+                    // didn't work, https://github.com/flutter/flutter/issues/74890
+                    selectionHandleColor: theme.splashColor,
+                    selectionColor:
+                        theme.colorScheme.background.withOpacity(0.5),
+                    cursorColor: cursColor),
               )
             : theme,
         child: TextField(
