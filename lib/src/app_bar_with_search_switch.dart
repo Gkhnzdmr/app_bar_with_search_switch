@@ -68,6 +68,7 @@ class AppBarWithSearchSwitch extends InheritedWidget
     this.closeOnSubmit = true,
     this.clearOnSubmit = false,
     this.clearOnClose = false,
+    this.cursorColor = Colors.white,
     this.showClearButton = true,
     this.closeOnClearTwice = true,
     this.submitOnClearTwice = true,
@@ -162,6 +163,7 @@ class AppBarWithSearchSwitch extends InheritedWidget
   ///
   /// This parameter is used then search is active: [isSearchMode] == true.
   final Color? shadowColor;
+  final Color cursorColor;
 
   /// See [AppBar] documentation for help.
   ///
